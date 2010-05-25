@@ -28,6 +28,7 @@ This is all wishlist stuff, though. I'm hoping to get the basics done (what time
 
 This section is really only for me, but you can take a look at it to see what the roadmap for Hu looks like.
 
+- Get Hu to do stuff every ten minutes.
 - Get Hu to record the time.
 - Get Hu to record which apps I have open.
 - Get Hu to record what music I've been listening to.
