@@ -1,5 +1,6 @@
 import pywapi
 import time
+import datetime
 import pylast as lastfm
 
 def getWeather(location):
@@ -19,8 +20,15 @@ def getRecentTracks(username):
 	network = lastfm.get_lastfm_network(api_key = apiKey, username = username)
 	user = lastfm.User(username, network)
 	recentTracks = user.get_recent_tracks(20)
+	tracksFromLastTenMinutes = []
 	# get rid of any tracks with a play-time earlier than fifteen minutes ago.
-	return recentTracks
+	
+	for track in recentTracks:
+		now = time.time()
+		if int(track[2]) + 600 > now:	# track was played < ten minutes (600 seconds) ago.
+			tracksFromLastTenMinutes.append(track)
+	
+	return tracksFromLastTenMinutes
 	
 
 def takeSnapshot():
@@ -38,7 +46,7 @@ def takeSnapshot():
 	
 	tracks = getRecentTracks("scottjacksonx")
 	for track in tracks:
-		newFile.write("Track: " + str(track[0]) + " | " + str(track[2]) + "\n")
+		newFile.write("Track: " + str(track[0]) + " | listened at " + str(track[2]) + "\n")
 	
 	newFile.close()
 	
