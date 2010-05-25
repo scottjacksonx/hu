@@ -38,4 +38,4 @@ This section is really only for me, but you can take a look at it to see what th
 
 # Administrivia #
 
-I plan on making Hu on my Mac, and as such, there might be some Mac-specific stuff going on (using AppleScript to get the URLs of open tabs in Safari, for example). We'll see what happens there. I also plan on making Hu a command-line thing for now. If I'm persuaded to, I might make it into a menubar app for Mac OS X, but someone else would have to write a system tray app for Windows users.
+I plan on making Hu on my Mac, and as such, there might be some Mac-specific stuff going on (using AppleScript to get the URLs of open tabs in a web browser, for example). We'll see what happens there. I also plan on making Hu a command-line thing for now. If I'm persuaded to, I might make it into a menubar app for Mac OS X, but someone else would have to write a system tray app for Windows users.
