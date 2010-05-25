@@ -7,7 +7,6 @@ import commands
 
 myLocation = "brisbane,australia"
 myLastFmUsername = "scottjacksonx"
-myBrowser = "safari"
 
 def getWeather(location):
 	"""
@@ -42,7 +41,7 @@ def getRecentTracks(username):
 	
 	return tracksFromLastTenMinutes
 	
-def getOpenBrowserTabs(browser):
+def getOpenBrowserTabs():
 	"""
 	Gets the title and URL of every tab open in the specified web browser.
 	"""
@@ -58,12 +57,14 @@ def getCurrentApp():
 
 def takeSnapshot():
 	"""
-	Makes a new file named after the timestamp it was created at and records the weather and recently-listened-to tracks.
+	Makes a new file named after the timestamp it was created at and records everything that's going on.
 	"""
 	# get current time.
 	currentTime = int(time.time())
+	
 	# make and open new file for that time.
-	newFile = open("hu-notes/hu-" + str(currentTime), "w")
+	newFile = open("hu-notes.txt", "a")
+	newFile.write("\n")
 	
 	# put time in file
 	snapshotTime = str(time.strftime("%a, %d %b %Y %H:%M:%S", time.localtime()))
@@ -85,9 +86,10 @@ def takeSnapshot():
 	newFile.write("\n")
 	
 	# put current tabs in file.
-	newFile.write(str(getOpenBrowserTabs(myBrowser)))
+	newFile.write(str(getOpenBrowserTabs()))
+	
+	newFile.write("----\n")
 	
 	newFile.close()
 	
 takeSnapshot()
-	
