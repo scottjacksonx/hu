@@ -26,7 +26,9 @@ This is all wishlist stuff, though. Don't get your hopes up too high just yet.
 
 # Using Hu #
 
-Hu is a little bit delicate at the moment. To use Hu, [download the source](http://github.com/scottjacksonx/hu/zipball/master), change your values at the top of `hu.py` and run `$ python hu.py`. Everything Hu captures will be stored in `hu-notes.txt`.
+Hu is a little bit delicate at the moment. To use Hu, [download the source](http://github.com/scottjacksonx/hu/zipball/master), change your values at the top of `hu.py` and run `$ python hu.py`. That will run Hu once. To get Hu to run constantly, add `hu.py` to your `crontab`.
+
+btw, everything Hu captures will be stored in `hu-notes.txt`.
 
 # The Potential #
 
