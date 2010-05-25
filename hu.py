@@ -48,6 +48,12 @@ def getOpenBrowserTabs(browser):
 	"""
 	return commands.getoutput("osascript scripts/urls.applescript")
 	
+def getCurrentApp():
+	"""
+	Gets the name of the front-most application.
+	"""
+	return commands.getoutput("osascript scripts/frontApplication.applescript")
+	
 	
 
 def takeSnapshot():
@@ -67,7 +73,10 @@ def takeSnapshot():
 	newFile.write(getWeather(myLocation) + "\n")
 	
 	# put current track in file.
-	newFile.write("Now Playing: " + str(getCurrentlyPlaying()) + "\n\n")
+	newFile.write("Now Playing: " + str(getCurrentlyPlaying()) + "\n")
+	
+	# put front app in file.
+	newFile.write("Current Application: " + str(getCurrentApp()) + "\n\n")
 	
 	tracks = getRecentTracks(myLastFmUsername)
 	for track in tracks:
