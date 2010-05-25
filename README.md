@@ -24,11 +24,15 @@ Want Hu to record how many items are in your trash can? Write a little bit of co
 
 This is all wishlist stuff, though. I'm hoping to get the basics done (what time it is, software open, websites I'm looking at, music I've been listening to, etc.) in a few weeks, then move on to making Hu extensible. If I get that done, the sky's the limit.
 
+# Using Hu #
+
+Hu is a little bit delicate at the moment. To use Hu, [download the source](http://github.com/scottjacksonx/hu/zipball/master), change your values at the top of `hu.py` and run `$ python hu.py`.
+
 # The Plan #
 
 This section is really only for me, but you can take a look at it to see what the roadmap for Hu looks like.
 
-- Get Hu to do stuff every ten minutes.
+- Get Hu to record stuff every ten minutes.
 - Get Hu to record the time.
 - Get Hu to record which apps I have open.
 - Get Hu to record what music I've been listening to.
