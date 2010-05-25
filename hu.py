@@ -2,6 +2,12 @@ import pywapi
 import time
 import datetime
 import pylast as lastfm
+import os
+import commands
+
+myLocation = "brisbane,australia"
+myLastFmUsername = "scottjacksonx"
+myBrowser = "safari"
 
 def getWeather(location):
 	"""
@@ -30,10 +36,17 @@ def getRecentTracks(username):
 	
 	return tracksFromLastTenMinutes
 	
+def getOpenBrowserTabs(browser):
+	"""
+	Gets the title and URL of every tab open in the specified web browser.
+	"""
+	return commands.getoutput("osascript scripts/urls.applescript")
+	
+	
 
 def takeSnapshot():
 	"""
-	Makes a new file named after the timestamp it was created at and records the weather.
+	Makes a new file named after the timestamp it was created at and records the weather and recently-listened-to tracks.
 	"""
 	# get current time.
 	currentTime = int(time.time())
@@ -41,12 +54,15 @@ def takeSnapshot():
 	newFile = open("hu-notes/hu-" + str(currentTime), "w")
 	
 	# put weather in file.
-	weather = getWeather("brisbane,australia")
-	newFile.write(weather)
+	weather = getWeather(myLocation)
+	newFile.write(weather + "\n")
 	
-	tracks = getRecentTracks("scottjacksonx")
+	tracks = getRecentTracks(myLastFmUsername)
 	for track in tracks:
-		newFile.write("Track: " + str(track[0]) + " | listened at " + str(track[2]) + "\n")
+		newFile.write("Track: " + str(track[0]) + " | listened at " + str(track[2]) + "\n\n")
+	
+	# put current tabs in file.
+	newFile.write(str(getOpenBrowserTabs(myBrowser)))
 	
 	newFile.close()
 	
