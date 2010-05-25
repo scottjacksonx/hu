@@ -12,9 +12,9 @@
 
 -- *Annabel Scheme*, by Robin Sloan.
 
-HUGIN-19.LG.GRAILGRID.NET (a.k.a. Hu) is the narrator of Robin Sloan's *Annabel Scheme*. In the section above, we see the kinds of things that Hu is capable of doing and recording.
+HUGIN-19.LG.GRAILGRID.NET (a.k.a. Hu) is the narrator of Robin Sloan's *Annabel Scheme*. In the section above, we see the kinds of things that Hu, an AI Watson to Scheme's Holmes, is capable of doing and recording.
 
-I want to make Hu. A rudimentary version of Hu, sure, but Hu nonetheless. Every ten minutes or so, I want my computer to take a snapshot of what's going on -- what time it is, what software I have open, what websites I'm looking at, how many unread items are in my RSS reader, how many unread emails I have, what music I've been listening to, which files are open, how long/big those files are (to track my work's progress), what the weather's like, what I've eaten (via services like Daytum), etc. From there, I can look at trends, graph things, measure things, and spot patterns.
+**I want to make Hu.** A rudimentary version of Hu, sure, but Hu nonetheless. Every ten minutes, I want my computer to take a snapshot of what's going on -- what time it is, what software I have open, what websites I'm looking at, how many unread emails I have, what music I've been listening to, which files are open, how long/big those files are (to track my work's progress), what the weather's like, what I've eaten (via services like Daytum), etc. From there, I can look at trends, graph things, measure things, and try to spot patterns.
 
 What's more, I want this thing to have a plugin architecture -- after all:
 
@@ -22,11 +22,11 @@ What's more, I want this thing to have a plugin architecture -- after all:
 
 Want Hu to record how many items are in your trash can? Write a little bit of code that checks how many items are in the trash can and tell Hu you want that data recorded. Ditto for recording your weight. Or your computer's remaining battery life. Or how many events are on your calendar for today ("do I work better when I've got long stretches of time to work in, or do I get work well in little chunks?").
 
-This is all wishlist stuff, though. I'm hoping to get the basics done (what time it is, software open, websites I'm looking at, music I've been listening to, etc.) in a few weeks, then move on to making Hu extensible. If I get that done, the sky's the limit.
+This is all wishlist stuff, though. Don't get your hopes up too high just yet.
 
 # Using Hu #
 
-Hu is a little bit delicate at the moment. To use Hu, [download the source](http://github.com/scottjacksonx/hu/zipball/master), change your values at the top of `hu.py` and run `$ python hu.py`.
+Hu is a little bit delicate at the moment. To use Hu, [download the source](http://github.com/scottjacksonx/hu/zipball/master), change your values at the top of `hu.py` and run `$ python hu.py`. Everything Hu captures will be stored in `hu-notes.txt`.
 
 # The Potential #
 
@@ -37,8 +37,20 @@ Once Hu has a bunch of information about you, here are the kinds of things you c
 - How does the weather affect the kind of music I listen to? Compare the list of songs you listened to when the weather was "Cloudy" to the songs you listened to when the weather was "Fine."
 - What time of day do I listen to music most at? See how many songs I listened to between 6pm and 12am and compare that number with how many songs I listened to between 9am and 3pm.
 
-At the moment, you have to ask those questions at the command-line using your sed, awk and grep fu. I might make searching and querying a bit easier later on.
+At the moment, you have to ask those questions at the command-line using your `sed`, `awk` and `grep` fu. I might make searching and querying Hu a bit easier later on, but until then, you'll have to speak bleep-blorp like a robot.
 
-# Administrivia #
+# Progress #
 
-I plan on making Hu on my Mac, and as such, there might be some Mac-specific stuff going on (using AppleScript to get the URLs of open tabs in a web browser, for example). We'll see what happens there. I also plan on making Hu a command-line thing for now. If I'm persuaded to, I might make it into a menubar app for Mac OS X, but someone else would have to write a system tray app for Windows users.
+So far, Hu records the following things:
+
+- the current time,
+- what the weather's like, 
+- the currently-playing track in iTunes,
+- which application is currently active (i.e. front-most),
+- recently played tracks on Last.fm,
+- currently opened tabs in Safari.
+
+I've only been working on Hu for a bit, so excuse the short feature list for now.
+
+
+
