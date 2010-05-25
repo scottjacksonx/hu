@@ -47,6 +47,7 @@ So far, Hu records the following things:
 - what the weather's like, 
 - the currently-playing track in iTunes,
 - which application is currently active (i.e. front-most),
+- the name of the wireless network you're currently connected to,
 - recently played tracks on Last.fm,
 - currently opened tabs in Safari.
 
