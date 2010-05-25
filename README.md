@@ -55,19 +55,24 @@ I've only been working on Hu for a bit, so excuse the short feature list for now
 
 Here's how Hu stores all this stuff, by the way:
 
-<code>
-Wed, 26 May 2010 00:13:52  
-Weather: Partly Cloudy, 17c  
-Now Playing: The Postal Service - Such Great Heights  
-Current Application: Safari  
-Connected to: Simon  
 
-Recently Played: The Replacements - Bastards of Young | listened at 1274796429
+>Wed, 26 May 2010 00:13:52  
+>Weather: Partly Cloudy, 17c  
+>Now Playing: The Postal Service - Such Great Heights  
+>Current Application: Safari  
+>Connected to: Simon  
+>
+>Recently Played: The Replacements - Bastards of Young | listened at 1274796429
+>
+>Browser Tab: scottjacksonx's hu at master - GitHub [|] http://github.com/scottjacksonx/hu  
+>Browser Tab: Tumblr [|] http://www.tumblr.com/dashboard  
+>Browser Tab: Programming Like It’s 1995 « hackinghat.com [|] http://www.hackinghat.com/index.php/programming/programming-like-its-1995  
 
-Browser Tab: scottjacksonx's hu at master - GitHub [|] http://github.com/scottjacksonx/hu  
-Browser Tab: Tumblr [|] http://www.tumblr.com/dashboard  
-Browser Tab: Programming Like It’s 1995 « hackinghat.com [|] http://www.hackinghat.com/index.php/programming/programming-like-its-1995  
-</code>
+Just like that. All in a text file. Perfect for putting in, oh, I don't know, a [Dropbox](http://dropbox.com) folder.
+
+# The Future #
+
+I've got a few more things I want to get Hu to record -- the names of all of the open applications in the Dock, for example.
 
 
 
