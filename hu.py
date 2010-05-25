@@ -18,6 +18,12 @@ def getWeather(location):
 	temp = googleWeather['current_conditions']['temp_c']
 	return "Weather: " + condition + ", " + temp + "c" + "\n"
 	
+def getCurrentlyPlaying():
+	"""
+	Gets the currently-playing track from iTunes.
+	"""
+	return commands.getoutput("osascript scripts/currentlyPlaying.applescript")
+	
 def getRecentTracks(username):
 	"""
 	Gets recently-listened-to tracks from Last.fm
@@ -53,13 +59,18 @@ def takeSnapshot():
 	# make and open new file for that time.
 	newFile = open("hu-notes/hu-" + str(currentTime), "w")
 	
+	# put time in file
+	newFile.write(str(datetime.date.fromtimestamp(currentTime)) + "\n")
+	
 	# put weather in file.
-	weather = getWeather(myLocation)
-	newFile.write(weather + "\n")
+	newFile.write(getWeather(myLocation) + "\n")
+	
+	# put current track in file.
+	newFile.write("Now Listening to: " + str(getCurrentlyPlaying()) + "\n")
 	
 	tracks = getRecentTracks(myLastFmUsername)
 	for track in tracks:
-		newFile.write("Track: " + str(track[0]) + " | listened at " + str(track[2]) + "\n\n")
+		newFile.write("Recently Listened: " + str(track[0]) + " | listened at " + str(track[2]) + "\n\n")
 	
 	# put current tabs in file.
 	newFile.write(str(getOpenBrowserTabs(myBrowser)))
