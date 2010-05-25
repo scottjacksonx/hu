@@ -1,8 +1,6 @@
 import pywapi
 import time
 
-print "Spoiler alert: I'm a demon."
-
 def getWeather(location):
 	"""
 	Gets the weather from Google.
