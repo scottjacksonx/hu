@@ -5,7 +5,7 @@ tell application "Safari"
     try
       set tab_list to tabs of w
       repeat with t in tab_list
-        set urls to urls & "Browser_Tab: " & name of t & " [|] " & URL of t & "\n"
+        set urls to urls & "Browser Tab: " & name of t & " [|] " & URL of t & "\n"
       end repeat
     on error
       -- not all windows have tabs
