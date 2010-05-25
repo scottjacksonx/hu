@@ -28,18 +28,16 @@ This is all wishlist stuff, though. I'm hoping to get the basics done (what time
 
 Hu is a little bit delicate at the moment. To use Hu, [download the source](http://github.com/scottjacksonx/hu/zipball/master), change your values at the top of `hu.py` and run `$ python hu.py`.
 
-# The Plan #
+# The Potential #
 
-This section is really only for me, but you can take a look at it to see what the roadmap for Hu looks like.
+Once Hu has a bunch of information about you, here are the kinds of things you can start to ask:
 
-- Get Hu to record stuff every ten minutes.
-- Get Hu to record the time.
-- Get Hu to record which apps I have open.
-- Get Hu to record what music I've been listening to.
-- Get Hu to record what websites I'm visiting.
-- Get Hu to record which files are open and how long/big they are.
-- Get Hu to record what the weather's like.
-- Get Hu to be extensible.
+- What application do I spend the most time in? Find the most commonly occurring application on the "Current application" line.
+- What websites do I visit the most often? Get the most frequently-appearing domain.
+- How does the weather affect the kind of music I listen to? Compare the list of songs you listened to when the weather was "Cloudy" to the songs you listened to when the weather was "Fine."
+- What time of day do I listen to music most at? See how many songs I listened to between 6pm and 12am and compare that number with how many songs I listened to between 9am and 3pm.
+
+At the moment, you have to ask those questions at the command-line using your sed, awk and grep fu. I might make searching and querying a bit easier later on.
 
 # Administrivia #
 
