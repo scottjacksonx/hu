@@ -53,7 +53,11 @@ def getCurrentApp():
 	"""
 	return commands.getoutput("osascript scripts/frontApplication.applescript")
 	
-	
+def getCurrentNetworkName():
+	"""
+	Gets the name of the wireless network the computer is currently coneected to.
+	"""
+	return commands.getoutput("/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport -I|grep \" SSID: \"|cut -c 18-")
 
 def takeSnapshot():
 	"""
@@ -77,7 +81,10 @@ def takeSnapshot():
 	newFile.write("Now Playing: " + str(getCurrentlyPlaying()) + "\n")
 	
 	# put front app in file.
-	newFile.write("Current Application: " + str(getCurrentApp()) + "\n\n")
+	newFile.write("Current Application: " + str(getCurrentApp()) + "\n")
+	
+	# put network in file.
+	newFile.write("Connected to: " + str(getCurrentNetworkName()) + "\n\n")
 	
 	tracks = getRecentTracks(myLastFmUsername)
 	for track in tracks:
