@@ -20,7 +20,7 @@ What's more, I want this thing to have a plugin architecture -- after all:
 
 > *I can interface with anything! I'm infinitely extensible...*
 
-Want Hu to record how many items are in your trash can? Write a little bit of code that checks how many items are in the trash can and tell Hu you want that data recorded. Ditto for recording your weight. Or your computer's remaining battery life. Or how many events are on your calendar for today ("do I work better when I've got long stretches of time to work in, or do I get work well in little chunks?").
+Want Hu to record how many items are in your trash can? Write a little bit of code that checks how many items are in the trash can and tell Hu you want that data recorded. Ditto for recording your weight. Or your computer's remaining battery life. Or how many events are on your calendar for today ("do I work better when I've got long stretches of time to work in, or do I get my best work done in little chunks of time?").
 
 This is all wishlist stuff, though. Don't get your hopes up too high just yet.
 
