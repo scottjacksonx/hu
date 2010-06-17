@@ -12,11 +12,11 @@
 
 -- *Annabel Scheme*, by Robin Sloan.
 
-HUGIN-19.LG.GRAILGRID.NET (a.k.a. Hu) is the narrator of Robin Sloan's *Annabel Scheme*. In the section above, we see the kinds of things that Hu, an AI Watson to Scheme's Holmes, is capable of doing and recording.
+HUGIN-19.LG.GRAILGRID.NET (a.k.a. Hu) is the narrator of Robin Sloan's *Annabel Scheme*. In the excerpt above, we see the kinds of things that Hu, an AI Watson to Scheme's Holmes, is capable of doing and recording.
 
-**I want to make Hu.** A rudimentary version of Hu, sure, but Hu nonetheless. Every ten minutes, I want my computer to take a snapshot of what's going on -- what time it is, what software I have open, what websites I'm looking at, how many unread emails I have, what music I've been listening to, which files are open, how long/big those files are (to track my work's progress), what the weather's like, what I've eaten (via services like Daytum), etc. From there, I can look at trends, graph things, measure things, and try to spot patterns.
+**I am making Hu.** A rudimentary version of Hu, sure, but Hu nonetheless. Every ten minutes, I want my computer to take a snapshot of what's going on -- what time it is, what software I have open, what websites I'm looking at, how many unread emails I have, what music I've been listening to, which files are open, how long/big those files are (to track my work's progress), what the weather's like, what I've eaten (via services like Daytum), etc. From there, I can look at trends, graph things, measure things, and try to spot patterns.
 
-What's more, I want this thing to have a plugin architecture -- after all:
+What's more, Hu has a plugin architecture -- after all:
 
 > *I can interface with anything! I'm infinitely extensible...*
 
@@ -26,55 +26,34 @@ This is all wishlist stuff, though. Don't get your hopes up too high just yet.
 
 # Using Hu #
 
-Hu is a little bit delicate at the moment. To use Hu, [download the source](http://github.com/scottjacksonx/hu/zipball/master), change your values at the top of `hu.py` and run `$ python hu.py`. That will run Hu once. To get Hu to run constantly, add `hu.py` to your `crontab`.
+Hu is a little bit delicate at the moment.
 
-btw, everything Hu captures will be stored in `hu-notes.txt`.
+To use Hu, first [download the source](http://github.com/scottjacksonx/hu/zipball/master). Then, change your values for the various plugins (your last.fm username for the `hu_lastfm` plugin, your location for the `hu_googleweather` plugin, etc.). Finally, run `$ python hu.py`. That will run Hu once.
+
+# Plugins #
+
+Hu has a plugin architecture. Here's how you write a plugin:
+
+1. You come up with a name for your plugin. We'll call it `$PLUGIN`. When you see `$PLUGIN` from here on out, substitute your own plugin's name.
+2. You write a python script called `$PLUGIN`.py that contains a definition of a function called `getData()`. You can include other functions, classes or any other kind of code, but you _must_ define a function called `getData()`. `getData()` returns exactly what is recorded in Hu's entry, so it should be XML, complete with newlines (no newline necessary at the end). No tabs/spaces are necessary, since that's carried out from within `hu.py`.
+3. Put `$PLUGIN`.py inside a folder called `$PLUGIN`. The `$PLUGIN` folder lives inside the `hu` folder.
+4. Inside the `$PLUGIN` folder, have a file called `__init__.py`, which contains a single line of code: `import $PLUGIN`
+5. In `hu.py`, at the tippy-top where the plugin declarations are, add an import statement for your plugin similar to the import statements that are already there. It should look like:
+
+	`import $PLUGIN.$PLUGIN`  
+	`plugin_modules.append($PLUGIN.$PLUGIN)`
+
+That's all there is to it. If you're having any issues, look at how the default plugins (`hu_googleweather`, `hu_openapps`, etc.) work.
 
 # The Potential #
 
 Once Hu has a bunch of information about you, here are the kinds of things you can start to ask:
 
-- What application do I spend the most time in? Find the most commonly occurring application on the "Current application" line.
+- What application do I spend the most time in? Find the most commonly occurring frontmost application.
 - What websites do I visit the most often? Get the most frequently-appearing domain.
 - How does the weather affect the kind of music I listen to? Compare the list of songs you listened to when the weather was "Cloudy" to the songs you listened to when the weather was "Fine."
 - What time of day do I listen to music most at? See how many songs I listened to between 6pm and 12am and compare that number with how many songs I listened to between 9am and 3pm.
 
-At the moment, you have to ask those questions at the command-line using your `sed`, `awk` and `grep` fu. I might make searching and querying Hu a bit easier later on, but until then, you'll have to speak bleep-blorp like a robot.
-
-# Progress #
-
-So far, Hu records the following things:
-
-- the current time,
-- what the weather's like, 
-- the currently-playing track in iTunes,
-- which application is currently active (i.e. front-most),
-- the name of the wireless network you're currently connected to,
-- recently played tracks on Last.fm,
-- currently opened tabs in Safari.
-
-I've only been working on Hu for a bit, so excuse the short feature list for now.
-
-Here's how Hu stores all this stuff, by the way:
-
-
->Wed, 26 May 2010 00:13:52  
->Weather: Partly Cloudy, 17c  
->Now Playing: The Postal Service - Such Great Heights  
->Current Application: Safari  
->Connected to: Simon  
->
->Recently Played: The Replacements - Bastards of Young | listened at 1274796429
->
->Browser Tab: scottjacksonx's hu at master - GitHub [|] http://github.com/scottjacksonx/hu  
->Browser Tab: Tumblr [|] http://www.tumblr.com/dashboard  
->Browser Tab: Programming Like It’s 1995 « hackinghat.com [|] http://www.hackinghat.com/index.php/programming/programming-like-its-1995  
-
-Just like that. All in a text file. Perfect for putting in, oh, I don't know, a [Dropbox](http://dropbox.com) folder.
-
-# The Future #
-
-I've got a few more things I want to get Hu to record -- the names of all of the open applications in the Dock, for example.
-
+At the moment, you have to ask those questions at the command-line using your `sed`, `awk` and `grep` fu. I plan on making searching and querying Hu a bit easier later on, but until then, you'll have to speak bleep-blorp like a robot.
 
 

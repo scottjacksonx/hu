@@ -1,102 +1,82 @@
-import pywapi
-import time
+# Plugin declarations
+
+plugin_modules = []
+import hu_currentlyplaying.hu_currentlyplaying
+plugin_modules.append(hu_currentlyplaying.hu_currentlyplaying)
+
+import hu_lastfm.hu_lastfm
+plugin_modules.append(hu_lastfm.hu_lastfm)
+
+import hu_googleweather.hu_googleweather
+plugin_modules.append(hu_googleweather.hu_googleweather)
+
+import hu_ssidname.hu_ssidname
+plugin_modules.append(hu_ssidname.hu_ssidname)
+
+import hu_openbrowsertabs.hu_openbrowsertabs
+plugin_modules.append(hu_openbrowsertabs.hu_openbrowsertabs)
+
+import hu_openapps.hu_openapps
+plugin_modules.append(hu_openapps.hu_openapps)
+
+# End plugin declarations
+
 import datetime
-import pylast as lastfm
-import os
-import commands
+import time
 
-myLocation = "brisbane,australia"
-myLastFmUsername = "scottjacksonx"
-
-def getWeather(location):
+class hu:
 	"""
-	Gets the weather from Google.
+	i'm hu. i'm a big, important class. i watch you and i take notes.
+	
+	i hope you like me.
 	"""
-	googleWeather = pywapi.get_weather_from_google(location)
-	condition = googleWeather['current_conditions']['condition']
-	temp = googleWeather['current_conditions']['temp_c']
-	return "Weather: " + condition + ", " + temp + "c"
 	
-def getCurrentlyPlaying():
-	"""
-	Gets the currently-playing track from iTunes.
-	"""
-	return commands.getoutput("osascript scripts/currentlyPlaying.applescript")
-	
-def getRecentTracks(username):
-	"""
-	Gets recently-listened-to tracks from Last.fm
-	"""
-	apiKey = "fd4197bb1bfc8521ced2ba81d70fd812"
-	network = lastfm.get_lastfm_network(api_key = apiKey, username = username)
-	user = lastfm.User(username, network)
-	recentTracks = user.get_recent_tracks(20)
-	tracksFromLastTenMinutes = []
-	# get rid of any tracks with a play-time earlier than fifteen minutes ago.
-	
-	for track in recentTracks:
-		now = time.time()
-		if int(track[2]) + 600 > now:	# track was played < 10 minutes (600 seconds) ago.
-			tracksFromLastTenMinutes.append(track)
-	
-	return tracksFromLastTenMinutes
-	
-def getOpenBrowserTabs():
-	"""
-	Gets the title and URL of every tab open in the specified web browser.
-	"""
-	return commands.getoutput("osascript scripts/urls.applescript")
-	
-def getCurrentApp():
-	"""
-	Gets the name of the front-most application.
-	"""
-	return commands.getoutput("osascript scripts/frontApplication.applescript")
-	
-def getCurrentNetworkName():
-	"""
-	Gets the name of the wireless network the computer is currently coneected to.
-	"""
-	return commands.getoutput("/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport -I|grep \" SSID: \"|cut -c 18-")
-
-def takeSnapshot():
-	"""
-	Makes a new file named after the timestamp it was created at and records everything that's going on.
-	"""
-	# get current time.
-	currentTime = int(time.time())
-	
-	# make and open new file for that time.
-	newFile = open("hu-notes.txt", "a")
-	newFile.write("\n")
-	
-	# put time in file
-	snapshotTime = str(time.strftime("%a, %d %b %Y %H:%M:%S", time.localtime()))
-	newFile.write(snapshotTime + "\n")
-	
-	# put weather in file.
-	newFile.write(getWeather(myLocation) + "\n")
-	
-	# put current track in file.
-	newFile.write("Now Playing: " + str(getCurrentlyPlaying()) + "\n")
-	
-	# put front app in file.
-	newFile.write("Current Application: " + str(getCurrentApp()) + "\n")
-	
-	# put network in file.
-	newFile.write("Connected to: " + str(getCurrentNetworkName()) + "\n\n")
-	
-	tracks = getRecentTracks(myLastFmUsername)
-	for track in tracks:
-		newFile.write("Recently Played: " + str(track[0]) + " | listened at " + str(track[2]) + "\n")
+	def takeSnapshot(self):
+		"""
+		this is the part where i look at all of the things you want me to record.
 		
-	newFile.write("\n")
+		i look at the things, take a reading for each of them, and record them.
+		
+		hopefully.
+		"""
+		snapshot = "<entry time=\""
+		snapshotTime = str(time.strftime("%a, %d %b %Y %H:%M:%S", time.localtime()))
+		snapshot += snapshotTime + "\">\n"
+		
+		for plugin in plugin_modules:
+			entryData = plugin.getData()
+			if entryData != "":
+				snapshot += str(entryData + "\n")
+		snapshot += "</entry>"
+		print snapshot
+		return snapshot
 	
-	# put current tabs in file.
-	newFile.write(str(getOpenBrowserTabs()))
 	
-	newFile.write("----\n")
-	
-	newFile.close()
-	
-takeSnapshot()
+	def writeSnapshotToLogFile(self, anEntry):
+		"""
+		this is the bit where i write the things down in my big book.
+		
+		if you want me to write down something secret, it's ok -- i won't tell.
+		
+		promise.
+		"""
+		try:
+			logFile = open("hu-notes.txt", "r")
+			currentLog = logFile.readlines()
+			logFile.close()
+		except:
+			currentLog = []
+		logFile = open("hu-notes.txt", "w")
+		logFile.write("<hu>\n")
+		for i in range(1, len(currentLog) - 1):
+			logFile.write(currentLog[i])
+		logFile.write(anEntry)
+		logFile.write("\n</hu>")
+		logFile.close()
+			
+			
+		
+			
+hu = hu()
+snapshot = hu.takeSnapshot()
+hu.writeSnapshotToLogFile(snapshot)
