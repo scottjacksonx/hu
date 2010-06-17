@@ -28,7 +28,7 @@ This is all wishlist stuff, though. Don't get your hopes up too high just yet.
 
 Hu is a little bit delicate at the moment.
 
-To use Hu, first [download the source](http://github.com/scottjacksonx/hu/zipball/master). Then, change your values for the various plugins (your last.fm username for the `hu_lastfm` plugin, your location for the `hu_googleweather` plugin, etc.). Finally, run `$ python hu.py`. That will run Hu once.
+To use Hu, first [download the source](http://github.com/scottjacksonx/hu/zipball/master). Then, change your values for the various plugins (your last.fm username for the `hu_lastfm` plugin, your location for the `hu_googleweather` plugin, etc.). Finally, run `$ python hu.py`. That will run Hu once. Hu's notes are stored in, well, `hu-notes.txt`.
 
 # Plugins #
 
@@ -44,6 +44,8 @@ Hu has a plugin architecture. Here's how you write a plugin:
 	`plugin_modules.append($PLUGIN.$PLUGIN)`
 
 That's all there is to it. If you're having any issues, look at how the default plugins (`hu_googleweather`, `hu_openapps`, etc.) work.
+
+I'm going to make plugins a little easier to add/remove in the near future.
 
 # The Potential #
 
