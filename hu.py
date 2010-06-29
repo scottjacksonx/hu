@@ -31,6 +31,20 @@ class hu:
 	i hope you like me.
 	"""
 	
+	def __init__(self):
+		"""
+		hello, world.
+		
+		this is the part where i find out all of the things you want me to record.
+		"""
+		# get current directory
+		
+		# get names of all folders in the current directory that start with "hu_", store as folder_name or similar
+		
+		# execute 'import ' + $folder_name + '.' $folder_name
+		
+		# execute 'plugin_modules.append(' + $folder_name + '.' $folder_name + ')'
+	
 	def takeSnapshot(self):
 		"""
 		this is the part where i look at all of the things you want me to record.

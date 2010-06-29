@@ -23,7 +23,7 @@ def getData():
 			if int(track[2]) + 600 > now:	# track was played < 10 minutes (600 seconds) ago.
 				tracksFromLastTenMinutes.append(track)
 		return xmlify(tracksFromLastTenMinutes)
-	else:
+	except:
 		return ""
 	
 
