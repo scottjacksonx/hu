@@ -28,24 +28,20 @@ This is all wishlist stuff, though. Don't get your hopes up too high just yet.
 
 Hu is a little bit delicate at the moment.
 
-To use Hu, first [download the source](http://github.com/scottjacksonx/hu/zipball/master). Then, change your values for the various plugins (your last.fm username for the `hu_lastfm` plugin, your location for the `hu_googleweather` plugin, etc.). Finally, run `$ python hu.py`. That will run Hu once. Hu's notes are stored in, well, `hu-notes.txt`.
+To use Hu, first [download the source](http://github.com/scottjacksonx/hu/zipball/master). Then, change your values for the various plugins (your last.fm username for the `hu_lastfm` plugin, your location for the `hu_googleweather` plugin, etc.). Finally, run `$ python hu.py`. That will run Hu once. Hu's notes are stored in `hu-notes.txt`.
 
 # Plugins #
 
-Hu has a plugin architecture. Here's how you write a plugin:
+Hu has a plugin architecture. When Hu runs, the first thing that happens is that he looks for every folder with a name that starts with `"hu_"` and treats that folder as a plugin.
 
-1. You come up with a name for your plugin. We'll call it `$PLUGIN`. When you see `$PLUGIN` from here on out, substitute your own plugin's name.
+Here's how you write a plugin:
+
+1. You come up with a name for your plugin (with plugins, as with bands, coming up with a name is the hardest part). We'll call it `$PLUGIN`. When you see `$PLUGIN` from here on out, substitute your own plugin's name. **_Nota bene_: your plugin's name must start with "hu_" for the reason outlined just above.** 
 2. You write a python script called `$PLUGIN`.py that contains a definition of a function called `getData()`. You can include other functions, classes or any other kind of code, but you _must_ define a function called `getData()`. `getData()` returns exactly what is recorded in Hu's entry, so it should be XML, complete with newlines (no newline necessary at the end). No tabs/spaces are necessary, since that's carried out from within `hu.py`.
 3. Put `$PLUGIN`.py inside a folder called `$PLUGIN`. The `$PLUGIN` folder lives inside the `hu` folder.
 4. Inside the `$PLUGIN` folder, have a file called `__init__.py`, which contains a single line of code: `import $PLUGIN`
-5. In `hu.py`, at the tippy-top where the plugin declarations are, add an import statement for your plugin similar to the import statements that are already there. It should look like:
-
-	`import $PLUGIN.$PLUGIN`  
-	`plugin_modules.append($PLUGIN.$PLUGIN)`
 
 That's all there is to it. If you're having any issues, look at how the default plugins (`hu_googleweather`, `hu_openapps`, etc.) work.
-
-I'm going to make plugins a little easier to add/remove in the near future.
 
 # The Potential #
 
@@ -53,6 +49,7 @@ Once Hu has a bunch of information about you, here are the kinds of things you c
 
 - What application do I spend the most time in? Find the most commonly occurring frontmost application.
 - What websites do I visit the most often? Get the most frequently-appearing domain.
+- How much of what I do at the Coffee Shop With the WiFi is work, and how much is refreshing Hacker News?
 - How does the weather affect the kind of music I listen to? Compare the list of songs you listened to when the weather was "Cloudy" to the songs you listened to when the weather was "Fine."
 - What time of day do I listen to music most at? See how many songs I listened to between 6pm and 12am and compare that number with how many songs I listened to between 9am and 3pm.
 

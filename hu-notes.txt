@@ -15,4 +15,58 @@
 <app name="Safari" />
 </applications>
 </entry>
+<entry time="Tue, 29 Jun 2010 13:14:14">
+<currentlyplaying artist="U2" title="Zoo Station" />
+<weather location="brisbane,australia" condition="Partly Cloudy" temp="16c"/>
+<lastfm>
+<track artist="Ramones" title="Chainsaw" time="1277780961" />
+<track artist="Jessica Harper" title="Carte Blanche" time="1277780878" />
+<track artist="Big Star" title="In The Street" time="1277780705" />
+</lastfm>
+<applications>
+<app name="Mail" />
+<app name="iTunes" />
+<app name="Terminal" />
+<app name="TextMate" />
+<app name="Safari" />
+</applications>
+<browser>
+<tab title="python list directories - Google Search" url="http://www.google.com/search?q=python%20list%20directories&ie=utf-8&oe=utf-8" />
+<tab title="10.1. os.path — Common pathname manipulations — Python v2.6.5 documentation" url="http://docs.python.org/library/os.path.html#module-os.path" />
+<tab title="10.1. os.path — Common pathname manipulations — Python v2.6.5 documentation" url="http://docs.python.org/library/os.path.html" />
+<tab title="15.1. os — Miscellaneous operating system interfaces — Python v2.6.5 documentation" url="http://docs.python.org/library/os.html" />
+<tab title="How do I execute a string containing Python code in Python? - Stack Overflow" url="http://stackoverflow.com/questions/701802/how-do-i-execute-a-string-containing-python-code-in-python" />
+<tab title="Stephen King - On Writing (Audiobook) (download torrent) - TPB" url="http://thepiratebay.org/torrent/4238993/Stephen_King_-_On_Writing_(Audiobook)" />
+<tab title="The.Pixar.Story.(2007).TV-RIP-PinkyBrainz.mp4 (download torrent) - TPB" url="http://thepiratebay.org/torrent/4171274/The.Pixar.Story.(2007).TV-RIP-PinkyBrainz.mp4" />
+<tab title="Welcome To Macintosh (2008) (download torrent) - TPB" url="http://thepiratebay.org/torrent/4758559/Welcome_To_Macintosh_(2008)" />
+</browser>
+<ssid name="Simon" />
+</entry>
+<entry time="Tue, 29 Jun 2010 13:17:19">
+<currentlyplaying artist="Richard O'Brien, Jessica Harper, Patricia Quinn, Barry Humphries" title="Little Black Dress" />
+<weather location="brisbane,australia" condition="Partly Cloudy" temp="16c"/>
+<lastfm>
+<track artist="U2" title="Zoo Station" time="1277781051" />
+<track artist="Ramones" title="Chainsaw" time="1277780961" />
+<track artist="Jessica Harper" title="Carte Blanche" time="1277780878" />
+</lastfm>
+<applications>
+<app name="Mail" />
+<app name="iTunes" />
+<app name="Terminal" />
+<app name="TextMate" />
+<app name="Safari" />
+</applications>
+<browser>
+<tab title="python list directories - Google Search" url="http://www.google.com/search?q=python%20list%20directories&ie=utf-8&oe=utf-8" />
+<tab title="10.1. os.path — Common pathname manipulations — Python v2.6.5 documentation" url="http://docs.python.org/library/os.path.html#module-os.path" />
+<tab title="10.1. os.path — Common pathname manipulations — Python v2.6.5 documentation" url="http://docs.python.org/library/os.path.html" />
+<tab title="15.1. os — Miscellaneous operating system interfaces — Python v2.6.5 documentation" url="http://docs.python.org/library/os.html" />
+<tab title="How do I execute a string containing Python code in Python? - Stack Overflow" url="http://stackoverflow.com/questions/701802/how-do-i-execute-a-string-containing-python-code-in-python" />
+<tab title="Stephen King - On Writing (Audiobook) (download torrent) - TPB" url="http://thepiratebay.org/torrent/4238993/Stephen_King_-_On_Writing_(Audiobook)" />
+<tab title="The.Pixar.Story.(2007).TV-RIP-PinkyBrainz.mp4 (download torrent) - TPB" url="http://thepiratebay.org/torrent/4171274/The.Pixar.Story.(2007).TV-RIP-PinkyBrainz.mp4" />
+<tab title="Welcome To Macintosh (2008) (download torrent) - TPB" url="http://thepiratebay.org/torrent/4758559/Welcome_To_Macintosh_(2008)" />
+</browser>
+<ssid name="Simon" />
+</entry>
 </hu>

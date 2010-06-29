@@ -1,35 +1,15 @@
-# Plugin declarations
-
-plugin_modules = []
-import hu_currentlyplaying.hu_currentlyplaying
-plugin_modules.append(hu_currentlyplaying.hu_currentlyplaying)
-
-import hu_lastfm.hu_lastfm
-plugin_modules.append(hu_lastfm.hu_lastfm)
-
-import hu_googleweather.hu_googleweather
-plugin_modules.append(hu_googleweather.hu_googleweather)
-
-import hu_ssidname.hu_ssidname
-plugin_modules.append(hu_ssidname.hu_ssidname)
-
-import hu_openbrowsertabs.hu_openbrowsertabs
-plugin_modules.append(hu_openbrowsertabs.hu_openbrowsertabs)
-
-import hu_openapps.hu_openapps
-plugin_modules.append(hu_openapps.hu_openapps)
-
-# End plugin declarations
-
 import datetime
 import time
+import os
 
 class hu:
+	
 	"""
 	i'm hu. i'm a big, important class. i watch you and i take notes.
 	
 	i hope you like me.
 	"""
+	plugin_modules = []
 	
 	def __init__(self):
 		"""
@@ -37,13 +17,12 @@ class hu:
 		
 		this is the part where i find out all of the things you want me to record.
 		"""
-		# get current directory
 		
-		# get names of all folders in the current directory that start with "hu_", store as folder_name or similar
-		
-		# execute 'import ' + $folder_name + '.' $folder_name
-		
-		# execute 'plugin_modules.append(' + $folder_name + '.' $folder_name + ')'
+		# get names of all folders in the current directory that start with "hu_"
+		for file in os.listdir("."):
+			if file[0:3] == "hu_":
+				exec "import " + file + "." + file
+				exec "self.plugin_modules.append(" + file + "." + file + ")"
 	
 	def takeSnapshot(self):
 		"""
@@ -57,7 +36,7 @@ class hu:
 		snapshotTime = str(time.strftime("%a, %d %b %Y %H:%M:%S", time.localtime()))
 		snapshot += snapshotTime + "\">\n"
 		
-		for plugin in plugin_modules:
+		for plugin in self.plugin_modules:
 			entryData = plugin.getData()
 			if entryData != "":
 				snapshot += str(entryData + "\n")
